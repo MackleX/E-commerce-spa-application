@@ -1,0 +1,149 @@
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box; 
+
+
+}
+header{
+    height: 8vh;
+    min-width: -webkit-fill-available;
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    background-color: #8179D5;
+}
+.logo-container{
+    display: flex;
+    height: 100%;
+}
+.logo{
+    height: 100%;
+    margin-right: 10px;
+}
+.menu-container-1,.menu-container-2{
+    display: flex;
+    position: relative; 
+}
+.menu-container-2{
+    margin-left: auto;
+}
+.search-container{
+    
+    width: 40vw;
+    height: 8vh;
+}
+ul{
+    flex-grow: 1;
+    list-style: none;
+    display: flex;  
+    align-self: center;     
+    margin-left: 10px;
+
+}
+.user-img{
+    height: 100%;
+    width: 6vh;
+    border-radius: 50%;
+    background-color: yellow ;
+
+}
+.cart{
+
+}
+.user-icon{
+
+}
+
+.my-banner{
+  overflow: hidden;
+}
+
+.categories{
+  margin:auto;
+  height: 10vh;
+}
+
+.container{
+    background-color: #FFFFFF;
+    display: flex;  
+    height: 90%;
+    bottom: 0;
+    margin-top:auto;
+}
+.li-categories{
+    position: relative;
+    height: 100%;
+    width: 10%;
+    margin-left: 3px;
+}
+.active-icon,.subject-icon,.caption-icon{
+    position: absolute;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom:50%;  
+    text-align: center;
+}
+.active-icon{
+    bottom: 0%;
+}
+.subject-icon,.caption-icon{
+
+}
+.caption-icon{
+    bottom:20%;
+}
+
+
+
+
+/* nav bar things */
+
+.nav-items-container{
+
+    height: 100vh;
+    width: 40vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
+    margin-left: 3vh;
+    border-radius: 0px 168px 15px 108px;
+    -moz-border-radius: 0px 168px 15px 108px;
+    -webkit-border-radius: 0px 168px 15px 108px;
+    border: 10px solid rgba(255, 255, 255, 0.3);
+    background-color: #8179D5;
+
+}
+.nav-items-container ul{
+    justify-self: start;
+    align-self: start;
+
+}
+
+.nav-items-container .Title{
+    position: relative;
+    left: 2vh;
+    top: 5vh;
+    align-self: flex-start;
+    font-size: 3rem;
+
+}
+
+.main{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.my-header{
+    width: 100vw;
+}
+
+.body-no-reset{
+    overflow:auto;  
+}
