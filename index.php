@@ -46,6 +46,7 @@
     </header>
 
     <div class="my-banner">
+        <?php require_once('./banner.php'); ?>
     </div>
 
     <script  src="./js/banner.js"></script>
