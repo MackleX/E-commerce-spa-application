@@ -1,10 +1,11 @@
-    <nav class="navbar">
+<script type="module" src="./nav-bar.js"></script>
+<div class="my_nav" >
+<nav class="navbar" style="background-color: #8279D4;">
       <div class="navbar-container">
       <ul class="navbar-nav">
         <div class="ulist-items-container">
         <li class="nav-item">
-  
-          <a href="#" class="nav-link">
+        <a class="nav-link stateElement topCategory _1" >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="fa-group">
       
@@ -19,7 +20,7 @@
   
   
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a class="nav-link stateElement topCategory _2" >
     
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="fa-group">
@@ -40,14 +41,14 @@
                 15H17.5C17.67 15 17.84 14.91 17.93 14.75C18.07 14.5 18 14.21 17.75 14.07L10 9.59L2.25 14.07C2 14.21 1.93 14.5 2.07 14.75C2.16 14.91 2.33 15 2.5 15Z"  fill="currentColor"/>
                 </g>
                 </svg>  
-                <span class="link-text">Clothing</span>
+                <span class="link-text">Clothing&Accessories</span>
     
     
             </a>
           </li>
           
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a class="nav-link stateElement topCategory _3" >
     
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="fa-group">
@@ -69,7 +70,7 @@
           </li>
   
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a class="nav-link stateElement topCategory _4" >
     
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="fa-group">
@@ -103,7 +104,7 @@
           </li>
           
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a class="nav-link stateElement topCategory _5" >
     
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="fa-group">
@@ -125,7 +126,7 @@
           </li>
   
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a class="nav-link stateElement topCategory _6" >
     
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="fa-group">
@@ -145,7 +146,7 @@
           </li>
           
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a class="nav-link stateElement topCategory _7" >
     
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="fa-group">
@@ -173,7 +174,7 @@
           </li> 
   
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a class="nav-link stateElement topCategory _8" >
     
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="fa-group">
@@ -203,7 +204,7 @@
           </li>
           
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a class="nav-link stateElement topCategory _9" >
     
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="fa-group">
@@ -221,7 +222,7 @@
   
   
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a class="nav-link stateElement topCategory _10" >
     
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="fa-group">
@@ -251,7 +252,7 @@
           </li>
     
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a class="nav-link stateElement topCategory _11" >
     
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="fa-group">
@@ -265,7 +266,7 @@
             </li>
   
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a class="nav-link stateElement topCategory _12" >
           
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g id="fa-group">
@@ -281,3 +282,4 @@
       </ul>
     </div>
     </nav>
+    </div>
