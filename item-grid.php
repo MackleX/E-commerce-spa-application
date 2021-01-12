@@ -23,9 +23,7 @@
 
 <div id="grid">
 
-
-
-
+    <?php foreach($top_cat_name as $tcat){ echo $tcat; } ?>
 </div>
 
 
