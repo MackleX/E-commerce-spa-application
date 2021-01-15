@@ -43,12 +43,8 @@
 </head>
 <body class="body-no-reset">
     <header class="my-header">
-    <?php require_once("./top-nav-bar.php") ?>
+    <?php require_once("./Regstration/top-nav-bar.php") ?>
     </header>
-
-    <div class="my-banner">
-        <?php require_once('./banner.php'); ?>
-    </div>
 
     <script  src="./js/banner.js"></script>
 
