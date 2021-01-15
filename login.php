@@ -1,5 +1,6 @@
 <?php 
-require_once("../header.php");
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once($root."/mywebsite/header.php");
 ?>
 
 <?php
@@ -34,7 +35,7 @@ if(isset($_POST['form1'])) {
                     $error_message .= "Your account is susspended try to contact our support".'<br>';
                 } else {
                     $_SESSION['customer'] = $row;
-                    header("location: "."../index.php");
+                    header("location: "."/mywebsite/index.php");
                 }
             }
             

@@ -1,6 +1,6 @@
 
 
-
+<?php require_once("./regstration/nav-bar.php");?>
 
 <div class="logo-container">
             <img class="logo" src="./images/bird.png" alt="logo">   
@@ -15,7 +15,7 @@
                 </li>
             </ul>   
         </nav>
-        <body>
+
   <div class="buscar-caja">
    <input type="text" name="" class="buscar-txt" placeholder="Buscar..."/>
    <a class="buscar-btn">
