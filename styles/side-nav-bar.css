@@ -55,7 +55,6 @@ nav.side-nav-bar .wrapper{
 }
 nav.side-nav-bar .wrapper.show{
   display: block;
-  display: flex;
 }
 .wrapper ul{
   width: 400px;
@@ -80,6 +79,10 @@ nav.side-nav-bar .wrapper.show{
 .wrapper ul li:hover a{
   background: #3A3B3C;
 }
+.nav-item-parent.clicked,li.clicked {
+  background: #3A3B3C;
+}
+
 ul li a .icon{
   height: 40px;
   width: 40px;
@@ -117,4 +120,9 @@ ul li a i{
 }
 .nav-item-parent{
   width: 100%;
+  }
+  
+.menu-bar{
+  display: flex;
+  flex-direction: column;
 }

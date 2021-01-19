@@ -16,7 +16,6 @@ $dbuser = 'root';
 // Database Password
 $dbpass = '123456';
 
-
 try {
 	$pdo = new PDO("mysql:host={$dbhost};dbname={$dbname};charset=utf8", $dbuser, $dbpass);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -1,3 +1,6 @@
+/*	Reset & General
+---------------------------------------------------------------------- */
+
 
 #grid-selector{
 	height: 10px;
@@ -164,32 +167,16 @@
 .checklist .checked span{
 	border-color:#8d939f;
 }
-.colors ul, .sizes ul{
-	float:left; width:130px;	
-}
-.colors ul li{padding-left:21px;}
-.colors a span{
-	border:none;
-	position:relative;
-	border-radius:100%;
-	background-color:#eae3d3;
-	width:13px;
-	height:13px;
-	margin-left:-20px;
-}
-.colors a:hover span{
-	width:15px;
-	height:15px;
-	margin-top:3px;
-	margin-left:-21px;
-}
+
+
 #sidebar img{margin-top:6px;}
 
 .product{
     position: relative;
     perspective: 800px;
-    width:306px;
-    min-height:471px;
+	width:306px;
+	margin-top: 20px;
+    height:471px;
     transform-style: preserve-3d;
     transition: transform 5s;
 	float:left; 
@@ -426,8 +413,33 @@ div.large .make3D{
          -o-transition: all 200ms ease-out; 
             transition: all 200ms ease-out; 		
 }
-
-
+div.colors div{
+	margin-top:3px;
+	width:15px; 
+	height:15px; 	
+	margin-right:5px;
+	float:left;
+}
+div.colors div span{
+	width:15px; 
+	height:15px; 
+	display:block;
+	border-radius:50%;
+}
+div.colors div span:hover{
+	width:17px;
+	height:17px;
+	margin:-1px 0 0 -1px;
+}
+div.c-blue span{background:#6e8cd5;}
+div.c-red span{background:#f56060;}
+div.c-green span{background:#44c28d;}
+div.c-white span{
+	background:#fff;
+	width:14px;
+	height:14px; 
+	border:1px solid #e8e9eb;
+}
 div.shadow{
 	width:335px;height:520px;
 	opacity:0;
@@ -882,6 +894,8 @@ div.sku strong{
     font-weight: 700;
 	margin-bottom:3px;
 }
+
+
 
 
 .product.large:hover{
