@@ -1,3 +1,4 @@
+<<<<<<< HEAD:header.php
 <?php
 ob_start();
 session_start();
@@ -10,12 +11,15 @@ $error_message = '';
 $success_message = '';
 $error_message1 = '';
 $success_message1 = '';
+=======
+>>>>>>> tests:HOMEPAGE/index-php-process.php
 
 // Kijib loghat likaynin men DB
 
 $i=1;
 
 
+<?php
 
 
 $statement = $pdo->prepare("SELECT * FROM tbl_top_category");
@@ -49,9 +53,13 @@ $statement = $pdo->prepare("SELECT * FROM tbl_top_category");
 
 
 
+<<<<<<< HEAD:header.php
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
 </head>
+=======
+?>
+>>>>>>> tests:HOMEPAGE/index-php-process.php

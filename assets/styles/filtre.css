@@ -1,0 +1,191 @@
+#title{
+    font:bold 48pt "Trebuchet MS";
+    text-align: center;
+    color: #F95;
+    letter-spacing: -2px;
+  }
+  #title span{
+    font-weight: normal;
+    color: #BBB;
+  }
+  
+  .tags{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px #CCC inset;
+    padding: 10px;
+    width: 100%;
+    background: #fafafa;
+    
+  }
+  
+ .my-input{
+    outline: none;
+    border: none;
+    padding: 6px;
+    margin: 3px;
+    margin-right: -25px;
+    width: 100%;
+    background-color: transparent;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .tag{
+    display: inline-block;
+    background: #F95;
+    color: #FFF;
+    padding: 5px 10px;
+    margin:2px 2px 2px 20px;
+    font: normal 16px sans-serif;
+    position: relative;
+    cursor: default;
+    box-shadow:1px 1px 0 rgba(0,0,0,.2);
+    -webkit-transform-origin:0% 50%;
+    -webkit-animation: swing 1s;
+    -o-animation: swing 1s;
+    animation: swing 1s ;
+  }
+  
+  .tag:before{
+    content: "";
+    position: absolute;
+    width: 0;
+    background: inherit;
+    height: 10px;
+    border: 10px solid #fafafa;
+    border-right-color: transparent;
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius:10px 0 0 10px;
+    border-radius:10px 0 0 10px;
+    left: -20px;
+    top: 0;
+  }
+  
+  .tag:after{
+    content: "";
+    width: 6px;
+    height: 6px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #FFF;
+    position: absolute;
+    left: -3px;
+    top: 12px;
+    box-shadow:inset 1px 1px 0 #CCC;
+  }
+  
+  .tag .close{
+    position: absolute;
+    background: inherit;
+    left: -4px;
+    z-index: 3;
+    visibility: hidden;
+  }
+  
+  .tag:hover .close{
+    visibility: visible;
+    
+  }
+  
+  .close:hover {
+    color: rgba(0,0,0,.5);
+  }
+  
+  
+  .colors {
+    list-style:none;
+  }
+  .colors li{
+    display: inline-block;
+    width:15px;
+    height: 15px;
+  }
+  
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes swing
+  {
+    0%   {-webkit-transform: rotate(100deg)}
+    25%  {-webkit-transform: rotate(-25deg)}
+    50%  {-webkit-transform: rotate(15deg)}
+    100% {-webkit-transform: rotate(0deg)}
+  }
+  
+  
+  @keyframes swing
+  {
+    0%   {-webkit-transform: rotate(-200)}
+    25%  {-webkit-transform: rotate(-70)}
+    50%  {-webkit-transform: rotate(-185)}
+    100% {-webkit-transform: rotate(-180)}
+  }
+
+
+
+
+
+
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  .tag-search-container{
+    width: 100%;
+  }
+
+::selection{
+  color: #fff;
+  background: #664AFF;
+}
+
+
+.wrap--per .search-input{
+  background: #fff;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0px 1px 5px 3px #664AFF;
+}
+
+
+
+.autocom-box li{
+  list-style: none;
+  padding: 8px 12px;
+  display: none;
+  width: 100%;
+  cursor: default;
+  border-radius: 3px;
+}
+
+
+
+
+
+
+.search-input.active input{
+  border-radius: 5px 5px 0 0;
+}
+
+.search-input .autocom-box{
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.search-input.active .autocom-box{
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-input.active .autocom-box li{
+  display: block;
+}
+
+.autocom-box li:hover{
+  background: whi;
+}

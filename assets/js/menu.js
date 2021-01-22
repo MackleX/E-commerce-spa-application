@@ -10,6 +10,7 @@ function menu(){
 			$(".bg-modal").css('display', "flex");
 
 			$(".bg-modal").css('z-index', "9999");
+<<<<<<< HEAD:js/menu.js
 
 			
 			$(".side-nav-bar").css('display','none');
@@ -17,6 +18,13 @@ function menu(){
 
 
 
+=======
+			$(".side-nav-bar").css('display','none');
+
+
+
+
+>>>>>>> tests:assets/js/menu.js
 		});
 
 
@@ -29,10 +37,17 @@ function menu(){
 		
 		$('.product').addClass('large').each(function(){											
 			});						
+<<<<<<< HEAD:js/menu.js
 			setTimeout(function(){
 				$('.info-large').show();	
 			}, 200);
 			setTimeout(function(){
+=======
+			setTimeout(function(){
+				$('.info-large').show();	
+			}, 200);
+			setTimeout(function(){
+>>>>>>> tests:assets/js/menu.js
 	
 				$('.view_gallery').trigger("click");	
 			}, 400);								
@@ -185,9 +200,15 @@ function menu(){
 			var carouselWidth = 0;	
 			var isAnimating = false;
 			var currSlide = 0;
+<<<<<<< HEAD:js/menu.js
 	
 			console.log(el);
 	
+=======
+	
+			console.log(el);
+	
+>>>>>>> tests:assets/js/menu.js
 			$(carousel).attr('rel', currSlide);
 			
 			// building the width of the casousel
