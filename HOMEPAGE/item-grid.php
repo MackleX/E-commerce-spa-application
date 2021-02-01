@@ -1,6 +1,6 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
-<div id="grid-selector">
+<div id="grid-selector" style="width:100%">
     <div id="grid-menu">
         View:
         <ul>
@@ -8,10 +8,10 @@
             <li class="smallGrid"><a class="active" href=""></a></li>
         </ul>
     </div>
-    Showing results
+    <span id="result_span">Showing result</span>
 </div>
 
-<div id="grid">
+<div id="grid" style=" width:100%;">
 
 
 
@@ -132,7 +132,11 @@
         }
 
         .productCard .container .info .attribs .attrib {
+<<<<<<< HEAD
             margin-top: 40px;
+=======
+            margin-top: 10px;
+>>>>>>> main
         }
 
         .productCard .container .info .attribs .attrib.size .options .option.activ {
@@ -163,7 +167,11 @@
         }
 
         .productCard .container .info .attribs .attrib .header {
+<<<<<<< HEAD
             margin-bottom: 10px;
+=======
+            margin-bottom: 5px;
+>>>>>>> main
             color: darkgray;
             font-weight: 600;
         }
@@ -557,6 +565,9 @@
 
 
 
+<?php require_once("../PRODUCTMODAL/product-modal.php") ?>
+
+
 
 
 
@@ -615,6 +626,20 @@
 
 
 <script>
+<<<<<<< HEAD
+=======
+    function copyProudctLink(pid) {
+            const el = document.createElement('textarea');
+            el.value = "http://localhost/REFACTORING/HOMEPAGE/index.php?id=" + pid;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert("link have been copied to the clipoard")
+
+    }
+
+>>>>>>> main
     function validateForm() {
         try {
             let productOptions = [];
@@ -635,6 +660,10 @@
 
                 propName = obj.name;
                 propValue = obj.value;
+<<<<<<< HEAD
+=======
+                debugger;
+>>>>>>> main
                 object = {
                     [propName]: propValue
                 }
@@ -648,7 +677,11 @@
             productOptions.push({
                 "p_id": $('#name').get(0).classList[1]
             });
+<<<<<<< HEAD
 
+=======
+            debugger;
+>>>>>>> main
             $.ajax({
                 type: 'POST',
                 url: '../KART/php-kart-process.php',
@@ -659,6 +692,7 @@
                 success: function(data) {
                     console.log(data);
 
+<<<<<<< HEAD
                 if(data != "userIsOffline"){   
              
                     if (data == "itemAdded") {
@@ -687,6 +721,36 @@
 
                                 if( $(".my_content_table").length ){
                                     $(".my_content_table").get(0).innerHTML = `
+=======
+                    if (data != "userIsOffline") {
+
+                        if (data == "itemAdded") {
+                            alert("Item is added to cart");
+                        }
+
+                        $('.myParchauseContainer').get(0).innerHTML = data;
+                        var handler = StripeCheckout.configure({
+                            // Put you publishable API key here. I can be found at https://dashboard.stripe.com/account/apikeys
+                            key: 'pk_test_51IGPGkIZi3lujjoDcBgO8WklHxXYPC6q5dJq6vAsvYSacU6e7fU80wmxGu6vLUUj2E81pHjnr0dwbVTF4gJA48GF00xSj6NwQN',
+                            image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+                            locale: 'auto',
+                            token: function(token) {
+                                $.ajax({
+                                    method: 'POST',
+                                    // Put the path of your server side script here
+                                    url: '../payment/ajax.php',
+                                    data: {
+                                        stripeToken: token.id,
+                                        stripeEmail: token.email
+                                    }
+                                }).done(function(msg) {
+                                        $('#parchause-response').get(0).innerHTML = msg;
+                                        debugger;
+                                        console.log(msg);
+
+                                        if ($(".my_content_table").length) {
+                                            $(".my_content_table").get(0).innerHTML = `
+>>>>>>> main
                                 <thead class=""><th>Serial
                                                     </th>
                                                     <th>
@@ -703,6 +767,7 @@
                                                     </th><th>Total Price</th></thead>"; 
                                                     `;
 
+<<<<<<< HEAD
                                 }
                             }
 
@@ -737,6 +802,42 @@
                     alert("you should be logged in");
                 }
                 
+=======
+                                        }
+                                    }
+
+
+                                ).fail(function(jqXHR, textStatus) {
+                                    console.log(msg)
+                                    $('ajax-response').html('Something went wrong with the Ajax Call:' + textStatus);
+                                })
+                            }
+                        });
+
+
+                        $('#payment-button').on('click', function(e) {
+                            // Open Checkout with further options:
+                            console.log("YO MAN WORKING")
+                            handler.open({
+                                name: 'StripeApi.com',
+                                description: 'Attention: transaction will be made see charge bellow',
+                                amount: 0
+                            });
+                            e.preventDefault();
+                        });
+
+                        // Close Checkout on page navigation:
+                        $(window).on('popstate', function() {
+                            handler.close();
+                        });
+
+
+                    } else {
+                        debugger;
+                        alert("you should be logged in");
+                    }
+
+>>>>>>> main
                 },
                 error: function(data) {
 
