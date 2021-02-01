@@ -34,7 +34,7 @@
         <li class="nav-item-parent <?php echo  "_" . $mid_cat_id[$i]; ?>" onclick="navigate(this.classList,true)">
         
         <a>
-            <div class="icon sideNavElement" >
+            <div class="icon stateElement sideNavElement" >
             </div>
             <?php echo $mid_cat_name[$i]; ?>
           </a>
@@ -47,7 +47,7 @@
       for ($ii = 0; $ii < count($mid_cat_id); $ii++){
         ?>
 
-      <ul class="nav-item-child ">
+      <ul class="nav-item-child <?php echo  "_" . $mid_cat_id[$ii]; ?>">
 
         <li class="arrow back-setting-btn" onclick="navigate(this.parentElement.classList,false)" ><span class="fas fa-arrow-left"></span>All</li>
 
@@ -60,7 +60,7 @@
         ?>
 
         
-        <li class='endCategory'><a>
+        <li class='endCategory _<?php echo $end_cat_id[$i]?> stateElement '><a>
             <div class="icon">
             </div>
             <?php echo $end_cat_name[$i]; ?>
@@ -79,6 +79,7 @@
       
     </div>
 
+    <?php require_once("./filtre.php")?>
   </nav>
 
 </body>
