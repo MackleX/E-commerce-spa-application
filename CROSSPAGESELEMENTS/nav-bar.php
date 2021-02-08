@@ -1,5 +1,5 @@
 <?php require_once("../config/config.php");
-require_once("../USERINTERFACE/authentfication.php")
+require_once("../USERINTERFACE/authentfication.php");
 
 ?>
 
@@ -47,10 +47,7 @@ require_once("../USERINTERFACE/authentfication.php")
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">shopping_cart</i>
-                        <span class="notification">0</span>
-                        <p class="d-lg-none d-md-block">
-                            Some Actions
-                        </p>
+                        <span href="../kart/client-cart.php" class="notification">0</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Mike John responded to your email</a>
@@ -167,3 +164,4 @@ require_once("../USERINTERFACE/authentfication.php")
 
     });
   </script>
+    

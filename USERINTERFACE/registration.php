@@ -135,28 +135,28 @@ if (isset($_POST['form1'])) {
                                         account_flag
                                     ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $statement->execute(array(
-            strip_tags($_POST['client_name']),
-            strip_tags($_POST['client_cname']),
-            strip_tags($_POST['client_email']),
-            strip_tags($_POST['client_phone']),
-            strip_tags($_POST['country']),
-            strip_tags($_POST['client_address']),
-            strip_tags($_POST['client_city']),
-            strip_tags($_POST['client_state']),
-            strip_tags($_POST['client_zip']),
-            strip_tags($_POST['client_name']),
-            strip_tags($_POST['client_phone']),
-            strip_tags($_POST['country']),
-            strip_tags($_POST['client_address']),
-            strip_tags($_POST['client_city']),
-            strip_tags($_POST['client_state']),
-            strip_tags($_POST['client_zip']),
+            strip_tags(htmlentities($_POST['client_name'])),
+            strip_tags(htmlentities($_POST['client_cname'])),
+            strip_tags(htmlentities($_POST['client_email'])),
+            strip_tags(htmlentities($_POST['client_phone'])),
+            strip_tags(htmlentities($_POST['country'])),
+            strip_tags(htmlentities($_POST['client_address'])),
+            strip_tags(htmlentities($_POST['client_city'])),
+            strip_tags(htmlentities($_POST['client_state'])),
+            strip_tags(htmlentities($_POST['client_zip'])),
+            strip_tags(htmlentities($_POST['client_name'])),
+            strip_tags(htmlentities($_POST['client_phone'])),
+            strip_tags(htmlentities($_POST['country'])),
+            strip_tags(htmlentities($_POST['client_address'])),
+            strip_tags(htmlentities($_POST['client_city'])),
+            strip_tags(htmlentities($_POST['client_state'])),
+            strip_tags(htmlentities($_POST['client_zip'])),
             md5($_POST['client_password']),
             $token,
             $client_datetime,
             $client_timestamp,
             0,
-            $seller
+            htmlentities($seller)
         ));
 
         // Send email for confirmation of the account
@@ -173,7 +173,7 @@ if (isset($_POST['form1'])) {
         unset($_POST['client_state']);
         unset($_POST['client_zip']);
 
-        $success_message = "Everything went good";
+        $success_message = "Everything went good, now please check your mail to verify your account.";
     }
 } else {
     $error_message = "fill your data";

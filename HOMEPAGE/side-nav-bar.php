@@ -8,11 +8,10 @@
 </head>
 
 <body>
-  <nav class="side-nav-bar">
-
+  <nav class="side-nav-bar" style="max-width:40%; display:flexbox; flex-direction: column;">
 
     <div class="drop-btn">
-      Categories <span class="fas fa-caret-down"></span>
+      Search By filter <span class="fas fa-caret-down"></span>
     </div>
 
 
@@ -21,65 +20,80 @@
 
 
 
-    <div class="wrapper">
+    <div class="wrapper" style="height: 100%">
 
+      <div>
+        <?php require_once("./filtre.php") ?>
+      </div>
+
+      <div class="drop-btn">
+        Search By filter
+      </div>
       <ul class="menu-bar">
 
-      <?php
-      for ($i = 0; $i < count($mid_cat_id); $i++){  
+        <?php
+        for ($i = 0; $i < count($mid_cat_id); $i++) {
 
         ?>
-        <!-- parents containers -->
+          <!-- parents containers -->
 
-        <li class="nav-item-parent <?php echo  "_" . $mid_cat_id[$i]; ?>" onclick="navigate(this.classList,true)">
-        
-        <a>
-            <div class="icon stateElement sideNavElement" >
-            </div>
-            <?php echo $mid_cat_name[$i]; ?>
-          </a>
-        
-        </li>
-        
-      <?php if($i == count($mid_cat_id) - 1) {echo "</ul>"; } }  ?>
-    
-      <?php
-      for ($ii = 0; $ii < count($mid_cat_id); $ii++){
-        ?>
+          <li class="nav-item-parent <?php echo  "_" . $mid_cat_id[$i]; ?>" onclick="navigate(this.classList,true)">
 
-      <ul class="nav-item-child <?php echo  "_" . $mid_cat_id[$ii]; ?>">
+            <a>
+              <div class="icon stateElement sideNavElement">
+              </div>
+              <?php echo $mid_cat_name[$i]; ?>
+            </a>
 
-        <li class="arrow back-setting-btn" onclick="navigate(this.parentElement.classList,false)" ><span class="fas fa-arrow-left"></span>All</li>
+          </li>
 
-
+        <?php if ($i == count($mid_cat_id) - 1) {
+            echo "</ul>";
+          }
+        }  ?>
 
         <?php
-        for ($i = 0; $i < count($end_cat_id); $i++){
-
-          if($end_to_mid_cat_id[$i] == $mid_cat_id[$ii]){
+        for ($ii = 0; $ii < count($mid_cat_id); $ii++) {
         ?>
 
-        
-        <li class='endCategory _<?php echo $end_cat_id[$i]?> stateElement '><a>
-            <div class="icon">
-            </div>
-            <?php echo $end_cat_name[$i]; ?>
-          </a>
-        </li>
-        
-         
-        <?php }} ?>
+          <ul class="nav-item-child <?php echo  "_" . $mid_cat_id[$ii]; ?>">
+
+            <li class="arrow back-setting-btn" onclick="navigate(this.parentElement.classList,false)"><span class="fas fa-arrow-left"></span>All</li>
+
+
+
+            <?php
+            for ($i = 0; $i < count($end_cat_id); $i++) {
+              if (isset($mid_cat_id[$ii]) && isset($end_to_mid_cat_id[$i])) {
+                
+                if ($end_to_mid_cat_id[$i] == $mid_cat_id[$ii]) {
+
+            ?>
+
+
+                  <li class='endCategory _<?php echo $end_cat_id[$i] ?> stateElement '><a>
+                      <div class="icon">
+                      </div>
+                      <?php echo $end_cat_name[$i]; ?>
+                    </a>
+                  </li>
+
+
+            <?php }
+              }
+            } ?>
 
 
 
 
-      </ul>
+          </ul>
 
-      <?php }?>
-      
+        <?php } ?>
+
+    </div>
     </div>
 
-    <?php require_once("./filtre.php")?>
+
   </nav>
 
 </body>

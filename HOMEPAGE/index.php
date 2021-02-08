@@ -7,19 +7,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
-
-
-
-
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.2.4/css/simple-line-icons.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="../assets/styles/item-grid.css">
   <link rel="stylesheet" href="../assets/styles/index.css">
   <link rel="stylesheet" href="../assets/styles/button.css">
@@ -38,19 +29,29 @@
     <script src="https://kit.fontawesome.com/524716f144.js" crossorigin="anonymous"></script>
 
 
+
+
     <script src="../assets/js/menu.js"></script>
+
+
+
 
 
 
     <title>Landing page</title>
   </head>
+  <style>
+    html {
+      overflow: hidden;
+    }
+  </style>
 
 <body class="body-no-reset">
 
 
 
-  <header class="my-header">
-    <?php require_once("../CROSSPAGESELEMENTS/nav-bar.php") ?>
+  <header class="my-header" style="width:100%;">
+    <?php require_once("../CROSSPAGESELEMENTS/nav-bar.php"); ?>
   </header>
 
 
@@ -59,14 +60,17 @@
 
   <script src="./js/banner.js"></script>
 
+  <div style="width:100%;">
 
-  <?php require_once("./nav-bar.php"); ?>
+    <?php require_once("./nav-bar.php"); ?>
+
+  </div>
 
 
-
-  <main class="main">
+  <main class="main container-fluid" style="overflow:visible;">
     <?php require_once("./side-nav-bar.php"); ?>
-    <div class="grid-container-index" style="display:flex; flex-direction:column; flex-grow:1;">
+
+    <div class="grid-container-index container-fluid">
       <?php require_once("./item-grid.php") ?>
     </div>
 
@@ -81,7 +85,7 @@
       </article>
     </section>
   </main>
- 
+
 
 </body>
 
@@ -91,6 +95,9 @@
 
 
 <script type="text/javascript">
+
+
+
   //SIDEBARSCRIPT
   const drop_btn = document.querySelector(".drop-btn span");
   const tooltip = document.querySelector(".tooltip");
@@ -103,7 +110,6 @@
 
 
   function navigate(classes, isParent) {
-
     const parentContainer = document.querySelector(".menu-bar")
     const child = document.querySelector(".nav-item-child" + "." + classes[1])
     if (isParent) {
@@ -132,7 +138,6 @@
         gridItemResponseHandler(data)
       },
       error: function(data) {
-        console.log('error dzbi');
         console.log(data);
 
       }
@@ -141,7 +146,6 @@
   }
 
   //CALLING ALL PRODUCT:
-
 </script>
 
 
@@ -151,16 +155,30 @@
 
 <script src="../assets/js/RequestState.js"></script>
 
+
+
+
+
 <script>
-  
+
 
 
   let params = new URLSearchParams(location.search);
+
+
   $linkId = params.get('id')
+  
+  $sellerId = params.get('sellerId')
+
+
+
 
 
 
   if ($linkId != null) {
+    globalRequestState.sendRequest("json", updategrid, {
+      jsondata: JSON.stringify(globalRequestState)
+    })
     globalRequestState.sendRequest("json", updateModal, {
       prodId: ($linkId)
     });
@@ -176,9 +194,16 @@
 
 
 
-  }else{
+  } else if ($sellerId != null) {
+    debugger;
     globalRequestState.sendRequest("json", updategrid, {
-    jsondata: JSON.stringify(globalRequestState)
-  })
+      sellerId: ($sellerId)
+    });
+
+
+  } else {
+    globalRequestState.sendRequest("json", updategrid, {
+      jsondata: JSON.stringify(globalRequestState)
+    })
   }
 </script>

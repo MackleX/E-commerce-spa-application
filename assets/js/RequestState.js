@@ -1,4 +1,3 @@
-
 document.querySelectorAll('.stateElement').forEach(item => {
     item.addEventListener('click', event => {
         if (item.classList.contains('clicked')) {
@@ -70,11 +69,17 @@ function changeState(item) {
 
 class RequestState {
     constructor() {
+
         this.topCat = [];
         this.midCat = [];
         this.endCat = [];
+
         this.currentItemId = 0;
+
+
         this.filtreOption = [];
+
+
     }
     updateRequestStateArrays(requestStateArray, id) {
 
@@ -86,10 +91,11 @@ class RequestState {
             this[requestStateArray].push(id)
         }
 
-
+        debugger;
         this.sendRequest("json", updategrid, {
             jsondata: JSON.stringify(this)
         })
+        debugger;
     }
 
     updateTopCat(topCatId) {
@@ -126,7 +132,7 @@ class RequestState {
 
     sendRequest(dataTpye, callback, data) {
 
-        console.log(data);
+       debugger;
 
         $.ajax({
             type: 'POST',
@@ -134,11 +140,14 @@ class RequestState {
             dataType: dataTpye,
             data: data,
             success: function (data) {
+                debugger;
                 callback(data);
+        
             },
             error: function (data) {
                 console.log("error");
                 console.log(data);
+                debugger;
 
             }
         })
@@ -151,13 +160,17 @@ class RequestState {
 
 function updategrid(data) {
     const grid = document.querySelector("#grid")
+
     let html = '';
+    if(data.length == 0 ){ $("#result_span").get(0).innerText = "No result is found"}else{$("#result_span").get(0).innerText = "Showing: " + data.length + " sresult"}
+    debugger;
     data.forEach(element => {
-        element.forEach(childelement => {
-            product_id = childelement['product_id'];
-            product_name = childelement['product_name'];
-            product_price = childelement['product_price'];
-            product_principale_photo = childelement['product_featured_photo']
+            debugger;
+
+            product_id = element['product_id'];
+            product_name = element['product_name'];
+            product_price = element['product_price'];
+            product_principale_photo = element['product_featured_photo']
 
 
 
@@ -180,7 +193,7 @@ function updategrid(data) {
             <div class="make3D">
                 <div class="product-front">
                     <div class="shadow"></div>
-                    <img src="../assets/uploads/${product_principale_photo}" alt="" />
+                    <img src="/refactoring/assets/uploads/product_photos/${product_principale_photo}" alt="" />
                     <div class="image_overlay"></div>
                     <div class="add_to_cart">Add to cart</div>
                     <div class="view_gallery">View gallery</div>
@@ -204,9 +217,6 @@ function updategrid(data) {
                     <div class="shadow"></div>
                     <div class="carousel">
                         <ul class="carousel-container">
-                            <li><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1.jpg" alt="" /></li>
-                            <li><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1.jpg" alt="" /></li>
-                            <li><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1.jpg" alt="" /></li>
                         </ul>
                         <div class="arrows-perspective">
                             <div class="carouselPrev">
@@ -227,16 +237,35 @@ function updategrid(data) {
             </div>
         </div>
         `
-        })
+
     })
     grid.innerHTML = '';
     grid.innerHTML = html;
     menu();
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function updateModal(data) {
-    console.log(data);
-    optionshtml = '';
+    let optionshtml = '';
     for (var prop in data['options']) {
 
 
@@ -251,20 +280,21 @@ function updateModal(data) {
 
         for (var option in data['options'][prop]) {
             if (count == 0) {
+                debugger;
                 optionshtml +=
                     `
-            <input id="${data['options'][prop][option]}" type="radio" name="${prop}" value="${data['options'][prop][option]}" style="display:none;" checked>
-            <label for="${data['options'][prop][option]}">
-            <div class="option activ">${data['options'][prop][option]}</div>
+            <input id="${data['options'][prop][option][0]}" type="radio" name="${prop}" value="${data['options'][prop][option][0]}" style="display:none;" checked>
+            <label for="${data['options'][prop][option][0]}">
+            <div class="price_${data['options'][prop][option][1]} activ option">${data['options'][prop][option][0]}</div>
             </label>
             `
             } else {
                 optionshtml +=
                     `
                 
-                <input id="${data['options'][prop][option]}" type="radio" name="${prop}" value="${data['options'][prop][option]}" style="display:none;">
-                <label for="${data['options'][prop][option]}">
-                <div class="option">${data['options'][prop][option]}</div>
+                <input id="${data['options'][prop][option][0]}" type="radio" name="${prop}" value="${data['options'][prop][option][0]}" style="display:none;">
+                <label for="${data['options'][prop][option][0]}">
+                <div class="price_${data['options'][prop][option][0][1]} option">${data['options'][prop][option][0]}</div>
                 </label>
 
 
@@ -313,7 +343,7 @@ function updateModal(data) {
 
     <div class="container" style="position:relative; ">
 
-        <i class="fas fa-times-circle closeButton" style="position:absolute; top:0px; right:10px; z-index:1600; font-size:2em; cursor:pointer;"></i>
+        <i class="fas fa-times-circle closeButton" style="position:absolute; top:0px; FIpright:10px; z-index:1600; font-size:2em; cursor:pointer;"></i>
         <div class="info">
             <h3 id="name" class="name ${productId}">${productName}</h3>
             <h1 class="slogan">${productSlogan}</h1>
@@ -328,7 +358,7 @@ function updateModal(data) {
                 <div class="attrib">
                     <p class="header"> Description </p>
                     <p>${productDescription}</p>
-
+                    <span onclick="copyProudctLink(${productId})" >Copy product link</span>
 
 
                 </div>
@@ -350,6 +380,12 @@ function updateModal(data) {
                     <label for="submitButton2">
                         <div type="button" class="button colored" data-toggle="modal" data-target="#exampleModalLong">Buy now</div>
                     </label>
+                    
+
+                    <button type="button" class="button colored" data-toggle="modal" data-target="#reportModal">
+                    Report item
+                    </button>
+                    
                 </div>
         </div>
 
@@ -375,10 +411,10 @@ function updateModal(data) {
 
         </div>
 
-`   
+`
     debugger;
-     $(".myproductmodalcontainer").get(0).innerHTML = html;
-     
+    $(".myproductmodalcontainer").get(0).innerHTML = html;
+
     console.log("this is my html");
     modalscript() //check item grid
     console.log(html);
@@ -386,5 +422,33 @@ function updateModal(data) {
 
 }
 
+
+function updateModalProduct(data) {
+
+    for (var option in data['options'][prop]) {
+        if (count == 0) {
+            debugger;
+            optionshtml +=
+                `
+        <input id="${data['options'][prop][option][0]}" type="radio" name="${prop}" value="${data['options'][prop][option][0]}" style="display:none;" checked>
+        <label for="${data['options'][prop][option][0]}">
+        <div class="price_${data['options'][prop][option][1]} activ option">${data['options'][prop][option][0]}</div>
+        </label>
+        `
+        } else {
+            optionshtml +=
+                `
+            
+            <input id="${data['options'][prop][option][0]}" type="radio" name="${prop}" value="${data['options'][prop][option][0]}" style="display:none;">
+            <label for="${data['options'][prop][option][0]}">
+            <div class="price_${data['options'][prop][option][0][1]} option">${data['options'][prop][option][0]}</div>
+            </label>
+
+
+            `
+        }
+        count++;
+    }
+}
 
 globalRequestState = new RequestState();

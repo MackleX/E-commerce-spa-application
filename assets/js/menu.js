@@ -13,6 +13,7 @@ function menu(){
 
 			changeState($(this).get(0));
 			debugger;
+			$(".side-nav-bar").css('display','none');
 
 
 

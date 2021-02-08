@@ -1,9 +1,9 @@
 <script type="module" src="./nav-bar.js"></script>
 <div class="my_nav" >
-<nav class="navbar" style="background-color: #8279D4;">
-      <div class="navbar-container">
-      <ul class="navbar-nav">
-        <div class="ulist-items-container">
+<nav class="navbar" style="background-color: #8279D4; width:100vw">
+      <div class="navbar-container" style="width:100vw"  >
+      <ul class="navbar-nav" style="width:100vw">
+        <div class="ulist-items-container" style="width:100vw">
         <li class="nav-item">
         <a class="nav-link stateElement topCategory _1" >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

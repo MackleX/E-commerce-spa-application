@@ -12,6 +12,21 @@ if (isset($_REQUEST['suggestions_id'])) {
     $statement->execute([':id' => $suggestions_id]);
     $result = $statement->fetch(PDO::FETCH_ASSOC);
     echo json_encode($result);
+    exit;
+}
+
+
+if (isset($_REQUEST['sellerId'])) {
+
+    $statement = $pdo->prepare("SELECT * FROM product WHERE product_seller_id = :id ");
+    $statement->execute([':id' => $_REQUEST['sellerId']]);
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($result as $row) {
+
+        $buffer[] = $row;
+    }
+    echo json_encode($result);
+    exit;
 }
 
 
@@ -32,14 +47,21 @@ if (isset($_REQUEST['jsondata'])) {
             if ($key == 'topCat' && !empty($value) && empty($arrayo->midCat) && empty($arrayo->endCat)) {
 
                 foreach ($value as $id) {
-
                     for ($i = 0; $i < count($mid_cat_id); $i++) {
+
                         if ($mid_top_cat_id[$i] == $id) {
+
+
                             array_push($arr1_, $mid_cat_id[$i]);
+
+
                             for ($j = 0; $j < count($end_mid_cat_id); $j++) {
                                 if ($end_mid_cat_id[$j] == $mid_cat_id[$i]) {
-                                    if (!in_array($end_cat_id[$i], $chosen_ids)) {
-                                        array_push($chosen_ids, $mid_cat_id[$i]);
+
+
+
+                                    if (!(in_array($end_cat_id[$i], $chosen_ids))) {
+                                        array_push($chosen_ids, $end_cat_id[$i]);
                                     }
                                 }
                             }
@@ -72,12 +94,50 @@ if (isset($_REQUEST['jsondata'])) {
 
     $buffer = (array) null;
 
-    foreach ($chosen_ids as $id) {
 
-        $statement = $pdo->prepare("SELECT * FROM product WHERE ecat_id = :id");
-        $statement->execute([':id' => $id]);
-        while ($row = $result = $statement->fetchAll(PDO::FETCH_ASSOC)) {
-            $buffer[] = $row;
+    $anOptionIsSelected = false;
+
+    foreach ($arrayo as $key => $value) {
+
+        if ($key == 'filtreOption') {
+
+            foreach ($value as $option) {
+                $option_id = $option->option_id;
+                $selectedOptions = $option->array;
+                if (!empty($selectedOptions)) {
+                    $anOptionIsSelected = true;
+                }
+
+                foreach ($selectedOptions as $value_name) {
+
+                    foreach ($chosen_ids as $id) {
+
+                        $statement = $pdo->prepare("SELECT * FROM product JOIN product_options ON product_option_values_id = product_id JOIN option_values ON option_values_id = option_id WHERE ecat_id = :id AND option_id = :o_id AND value_name = :v_name ;");
+                        $statement->execute([':id' => $id, 'o_id' => $option_id, 'v_name' => $value_name]);
+                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                        foreach ($result as $row) {
+
+                            $buffer[] = $row;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if ($anOptionIsSelected == false) {
+
+        $buffer = (array) null;
+
+
+        foreach ($chosen_ids as $id) {
+            $statement = $pdo->prepare("SELECT * FROM product WHERE ecat_id = :id ");
+            $statement->execute([':id' => $id]);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($result as $row) {
+
+                $buffer[] = $row;
+            }
         }
     }
 
@@ -86,7 +146,7 @@ if (isset($_REQUEST['jsondata'])) {
 
 
     $id = $_REQUEST['prodId'];
-
+    $_SESSION["prod_id"] = $id;
     $statement = $pdo->prepare("SELECT * FROM product WHERE product_id = ?");
     $statement->execute(array($id));
     $product_info = $statement->fetch(PDO::FETCH_ASSOC);
@@ -108,11 +168,11 @@ if (isset($_REQUEST['jsondata'])) {
     {
         global $pdo;
 
-        $statement = $pdo->prepare("SELECT value_name FROM option_values WHERE option_values_id =? and value_id= ?");
+        $statement = $pdo->prepare("SELECT value_name,option_added_price FROM option_values WHERE option_values_id =? and value_id= ?");
         $statement->execute(array($option_id, $option_value));
-        $value_name = $statement->fetch(PDO::FETCH_ASSOC);
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-        return $value_name['value_name'];
+        return array($result['value_name'], $result['option_added_price']);
     }
 
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -144,7 +204,7 @@ if (isset($_REQUEST['jsondata'])) {
 
 
     $statement = $pdo->prepare("SELECT images FROM images_table WHERE p_id=? ");
-    $statement->execute(array($product_info['product_images']));
+    $statement->execute(array($product_info['product_id']));
 
     $images_name = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -155,7 +215,7 @@ if (isset($_REQUEST['jsondata'])) {
     $statement = $pdo->prepare('SELECT client_name,client_id FROM client WHERE client_id=? ;');
     $statement->execute(array($product_info['product_seller_id']));
     $seller_name = $statement->fetch(PDO::FETCH_ASSOC);
-    $Response = array_merge($product_info,$options_buffer,$images,$seller_name);
+    $Response = array_merge($product_info, $options_buffer, $images, $seller_name);
 
     $statement = $pdo->prepare('UPDATE product SET product_total_view = product_total_view + 1 WHERE product_id = ?');
     $statement->execute(array(($product_info['product_id'])));

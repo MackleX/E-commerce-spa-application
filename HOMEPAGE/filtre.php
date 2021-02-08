@@ -2,7 +2,7 @@
 
 <?php
 
-$statement = $pdo->prepare("SELECT * FROM options");
+$statement = $pdo->prepare("SELECT * FROM options where is_unified = 1");
 $statement->execute();
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 

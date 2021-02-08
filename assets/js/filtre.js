@@ -106,10 +106,10 @@
   
         let fetchSuggestions = new Promise((resolve, reject) => {
   
-  
+        debugger;
           $.ajax({
             type: 'POST',
-            url: 'php-filtre-process.php',
+            url: './../homepage/php-filtre-process.php',
             dataType: "json",
             data: {
               suggestions_id: id
@@ -119,24 +119,36 @@
               console.log('SUCCESS BLOCK');
               dataBuffer = data;
               console.log(data);
+              if(data != false){
               resolve(dataBuffer);
+              debugger;
+              }else{
+                reject('nothing found')
+              }
             },
             error: function(data) {
+              debugger;
               console.log('ERROR BLOCK');
               console.log(data);
               reject('ERROR BLOCK');
             }
           })
+          debugger;
   
         }
         
         )
         fetchSuggestions.then(fetchedData =>{
-          fetchedData.forEach(element =>{
-            console.log(element)
-            suggestions['id' + id].push(element['value_name']);
-            
-          })
+          debugger;
+
+
+          for (var prop in fetchedData) {
+            if (Object.prototype.hasOwnProperty.call(fetchedData, prop) && prop == "value_name") {
+               suggestions['id' + id].push(fetchedData[prop]);
+               debugger;
+            }
+        }
+        debugger;
         
           console.log(suggestions['id' + id])
         })
