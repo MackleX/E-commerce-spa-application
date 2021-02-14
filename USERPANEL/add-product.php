@@ -598,8 +598,6 @@ if (isset($_REQUEST['midCatName'])) {
                     debugger
                 },
                 error: function(data) {
-                    console.log("error");
-                    console.log(data);
                     debugger
                 }
             })
