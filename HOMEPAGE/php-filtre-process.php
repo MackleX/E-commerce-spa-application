@@ -49,36 +49,42 @@ if (isset($_REQUEST['jsondata'])) {
                 foreach ($value as $id) {
                     for ($i = 0; $i < count($mid_cat_id); $i++) {
 
-                        if ($mid_top_cat_id[$i] == $id) {
+                        if ($mid_to_top_cat_id[$i] == $id) {
 
 
                             array_push($arr1_, $mid_cat_id[$i]);
 
 
-                            for ($j = 0; $j < count($end_mid_cat_id); $j++) {
-                                if ($end_mid_cat_id[$j] == $mid_cat_id[$i]) {
+                            for ($j = 0; $j < count($end_to_mid_cat_id); $j++) {
+                                if ($end_to_mid_cat_id[$j] == $mid_cat_id[$i]) {
 
 
 
-                                    if (!(in_array($end_cat_id[$i], $chosen_ids))) {
-                                        array_push($chosen_ids, $end_cat_id[$i]);
+                                    if (!(in_array($end_cat_id[$j], $chosen_ids))) {
+                                        array_push($chosen_ids, $end_cat_id[$j]);
                                     }
+
+
+
+
                                 }
                             }
                         }
                     }
                 }
+                if(empty($chosen_ids)){$chosen_ids = array(0);}
             } elseif ($key == 'midCat' && !empty($value) && empty($arrayo->endCat)) {
                 $chosen_ids = (array) null;
                 foreach ($value as $id) {
-                    for ($j = 0; $j < count($end_mid_cat_id); $j++) {
-                        if ($end_mid_cat_id[$j] == $id) {
+                    for ($j = 0; $j < count($end_to_mid_cat_id); $j++) {
+                        if ($end_to_mid_cat_id[$j] == $id) {
                             if (!in_array($end_cat_id[$j], $chosen_ids)) {
                                 array_push($chosen_ids, $end_cat_id[$j]);
                             }
                         }
                     }
                 }
+                if(empty($chosen_ids)){$chosen_ids = array(0);}
             } elseif ($key == "endCat" && !empty($value)) {
                 $chosen_ids = $value;
             }

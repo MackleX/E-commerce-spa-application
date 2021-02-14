@@ -1,6 +1,4 @@
 <?php require_once('header.php'); ?>
-<?php require_once('index-php-process.php'); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
