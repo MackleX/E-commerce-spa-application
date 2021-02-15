@@ -1,5 +1,5 @@
 <?php require_once("../config/config.php");
-require_once("../USERINTERFACE/authentfication.php");
+require_once("../userinterface/authentfication.php");
 
 ?>
 
@@ -20,11 +20,6 @@ require_once("../USERINTERFACE/authentfication.php");
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-
-                <button class="btn btn-warning" type="submit">Sell on our web Site</button>
-
-            </li>
-            <li class="nav-item">
                 <form action="../USERINTERFACE/registration.php">
                     <button class="btn btn-warning" type="submit">Register as client or Seller</button>
                 </form>
@@ -44,19 +39,6 @@ require_once("../USERINTERFACE/authentfication.php");
             <ul class="navbar-nav">
 
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="material-icons">shopping_cart</i>
-                        <span href="../kart/client-cart.php" class="notification">0</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                        <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                        <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                        <a class="dropdown-item" href="#">Another Notification</a>
-                        <a class="dropdown-item" href="#">Another One</a>
-                    </div>
-                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -1,6 +1,10 @@
 <?php require_once("../config/config.php");
 session_start();
-    
+    if(!isset($_SESSION['admin'])){
+        header("location: ../adminpanel/login.php");
+        exit;
+
+    }
 ?>
 
 

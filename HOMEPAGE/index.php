@@ -49,7 +49,7 @@
 
 
   <header class="my-header" style="width:100%;">
-    <?php require_once("../CROSSPAGESELEMENTS/nav-bar.php"); ?>
+    <?php require_once("../crosspageselements/nav-bar.php"); ?>
   </header>
 
 
@@ -132,11 +132,9 @@
         id: id
       },
       success: function(data) {
-        console.log('SUCCESS BLOCK');
         gridItemResponseHandler(data)
       },
       error: function(data) {
-        console.log(data);
 
       }
     })

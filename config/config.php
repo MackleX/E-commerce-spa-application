@@ -16,11 +16,7 @@ $dbuser = 'root';
 // Database Password
 $dbpass = '123456';
 
-// Defining base url
-define("BASE_URL", "http://fashionys.com/");
 
-// Getting Admin url
-define("ADMIN_URL", BASE_URL . "admin" . "/");
 
 try {
 	$pdo = new PDO("mysql:host={$dbhost};dbname={$dbname};charset=utf8", $dbuser, $dbpass);

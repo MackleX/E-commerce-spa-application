@@ -1,6 +1,6 @@
 <?php 
 require_once("../config/config.php");
-require_once("../USERINTERFACE/authentfication.php")
+require_once("../userinterface/authentfication.php")
 ?>
 
 <?php

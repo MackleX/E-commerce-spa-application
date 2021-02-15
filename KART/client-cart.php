@@ -1,6 +1,6 @@
 <?php
 require_once("../config/config.php");
-require_once("../USERINTERFACE/authentfication.php")
+require_once("../userinterface/authentfication.php")
 ?>
 
 <?php
@@ -182,7 +182,6 @@ if (isset($_REQUEST['index'])) {
     <?php } ?>
     <script>
         function removeCart(element) {
-            console.log(element)
 
             $.ajax({
                 type: "POST",
@@ -192,8 +191,9 @@ if (isset($_REQUEST['index'])) {
                 },
 
                 success: function(msg) {
-                    console.log(msg);
+                    
                     $(".my_contentx").get(0).innerHTML = msg;
+                    debugger;
                 },
                 error: function(msg) {
                     alert("Something Went Wrong")
