@@ -26,5 +26,7 @@ catch( PDOException $exception ) {
 	echo "Connection error :" . $exception->getMessage();
 }
 
-
+//this config file belong to fashionys project, it was the one of the first files that i used as reference to know where i am going, the fashionys didn't use any ajax, 
+// and it was a total static web app, this app is reactive for the client and static for the admin and have many more features.
+// the admin panel design belong to CreativeTim
 
