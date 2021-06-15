@@ -16,8 +16,6 @@ $dbuser = 'root';
 // Database Password
 $dbpass = '123456';
 
-// Defining base url
-define("BASE_URL", "http://fashionys.com/");
 
 // Getting Admin url
 define("ADMIN_URL", BASE_URL . "admin" . "/");
